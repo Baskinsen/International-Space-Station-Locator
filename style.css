@@ -20,7 +20,7 @@ h1:hover {
 
 #map { 
     height: 500px; 
-    width: clamp(300px, 100vw, 1000px);
+    width: min(300px) max(1000px);
     text-align: center;
     border-radius: 15px;
     box-shadow: 10px 10px 50px 10px rgba(0, 0, 0, 0.2);
@@ -55,7 +55,7 @@ p {
 @media only  screen and (min-width:1000px) {
    #map {
     margin-top: 50px;
-    margin-left: 250px;
+    margin-left: min(0) max(250px);
 
    }
 }

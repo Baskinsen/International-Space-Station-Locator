@@ -8,28 +8,29 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
 
-// Creation Of Icon and Marker
+// Creation Of Icon and Marker With Popup
 const issIcon = L.icon({
     iconUrl: 'iss200.png',
     iconSize: [50, 32],
     iconAnchor: [25, 16]
 });
 const marker = L.marker([0, 0], {icon: issIcon}).addTo(map)
+marker.bindPopup("<b>International Space Station").openPopup()
+
 
 //Declaration Of Url And Fetching Of Api
 const url = 'https://api.wheretheiss.at/v1/satellites/25544'
+
 const getApi = async () => {
     const response =await fetch(url)
     const data =  await response.json()
-    //console.log(data)
     const  {latitude, longitude} = data
     if(firstTime) {
         map.setView([latitude, longitude])
         firstTime = false
     } 
     marker.setLatLng([latitude, longitude])
-    //console.log(longitude, latitude)
-    console.log(firstTime)    
+      
     document.getElementById('lon').innerText = longitude.toFixed(2)
     document.getElementById('lat').innerText = latitude.toFixed(2)
    
