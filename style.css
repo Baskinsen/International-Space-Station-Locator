@@ -1,0 +1,61 @@
+body {
+    margin: 0;
+    padding: 0;
+  
+}
+
+h1{
+    text-align: center;
+    background-image: linear-gradient(to right, rgb(69, 69, 204) , rgb(193, 193, 233), blue);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+h1:hover {
+    color: linear-gradient(to right, red ,yellow );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: ease-in;
+}
+
+#map { 
+    height: 500px; 
+    width: clamp(300px, 100vw, 1000px);
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 10px 10px 50px 10px rgba(0, 0, 0, 0.2);
+    outline: none;
+}
+
+
+.footer{
+    display: flex;
+    margin-top: 30px;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+p { 
+     background-image: linear-gradient(to right, rgb(69, 69, 204) , rgb(193, 193, 233), blue);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#recenter {
+    padding: 10px 10px 10px 10px;
+    color: white;
+    border: none;
+    background-color: rgb(69, 69, 204);
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 10px 10px 50px 10px rgba(0, 0, 0, 0.2);
+}
+
+@media only  screen and (min-width:1000px) {
+   #map {
+    margin-top: 50px;
+    margin-left: 250px;
+
+   }
+}
