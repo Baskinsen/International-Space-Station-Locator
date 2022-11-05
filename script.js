@@ -15,6 +15,7 @@ const issIcon = L.icon({
     iconAnchor: [25, 16]
 });
 const marker = L.marker([0, 0], {icon: issIcon}).addTo(map)
+const myMarker = L.marker([0, 0]).addTo(map)
 marker.bindPopup("<b>International Space Station").openPopup()
 
 
@@ -39,6 +40,16 @@ const getApi = async () => {
         map.setView([latitude, longitude], 4)
     })
 
+   const position = navigator.geolocation.getCurrentPosition((pos) => {
+    let posLat = pos.coords.latitude
+    let posLon = pos.coords.longitude
+    myMarker.setLatLng([posLat, posLon])
+    document.getElementById('mylon').innerText = posLon.toFixed(2)
+    document.getElementById('mylat').innerText = posLat.toFixed(2)
+   // console.log(myMarker)
+   })
+  
+   
     return {latitude, longitude}
 }
 
